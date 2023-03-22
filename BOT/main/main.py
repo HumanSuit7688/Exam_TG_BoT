@@ -1,3 +1,17 @@
 # Основной файл, который будет брать инфу из всех осталльных файлов, запускаться и работать
-import aiogram
 import config
+import asyncio
+from aiogram import Bot, Dispatcher, types
+from BOT.handlers.main_handlers.main_handlers import register_handlers_main
+
+bot = Bot(token=config.TOKEN_test)
+dp = Dispatcher(bot)
+
+async def main():
+    register_handlers_main(dp)
+    await dp.skip_updates()
+    await dp.start_polling()
+
+
+if __name__ == '__main__':
+    asyncio.run(main())
