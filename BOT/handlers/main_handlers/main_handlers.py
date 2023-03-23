@@ -28,9 +28,14 @@ async def cmd_button_EGE(callback_query: types.CallbackQuery):
 async def cmd_button_OGE_math(callback_query: types.CallbackQuery):
     await bot.send_message(text='Математика', chat_id=callback_query.message.chat.id)
 
+async def cmd_button_OGE_IT(callback_query: types.CallbackQuery):
+    await bot.send_message(text='Информатика', chat_id=callback_query.message.chat.id)
+
+
 def register_handlers_main(dp: Dispatcher):
     dp.register_message_handler(cmd_start, commands='start')
     dp.register_message_handler(cmd_help, commands='help')
     dp.register_callback_query_handler(cmd_button_OGE, lambda c: c.data == 'button_OGE')
     dp.register_callback_query_handler(cmd_button_EGE, lambda c: c.data == 'button_EGE')
     dp.register_callback_query_handler(cmd_button_OGE_math, lambda c: c.data == 'button_OGE_math')
+    dp.register_callback_query_handler(cmd_button_OGE_IT, lambda c: c.data == 'button_OGE_IT')
