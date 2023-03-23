@@ -17,7 +17,8 @@ async def cmd_help(msg: types.Message):         # Хандлер для кома
                      "Все команды в меню команд(слева от ввода сообщения)."
                      "Если что-то не работает, что-то не так или просто есть вопросы пиши разаботчикам этого бота:\n"
                      "https://t.me/HumanSuit8\n"
-                     "https://t.me/Dan4ksapr123")
+                     "https://t.me/Dan4ksapr123\n"
+                     "https://t.me/Fazlet0")
 
 async def cmd_button_OGE(callback_query: types.CallbackQuery):
     await bot.send_message(text='Выбирай предмет:', chat_id=callback_query.message.chat.id, reply_markup=inline_kb_OGE_menu)
