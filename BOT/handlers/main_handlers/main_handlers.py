@@ -1,7 +1,7 @@
 from aiogram import Dispatcher, types, Bot
 from aiogram.types import ReplyKeyboardRemove, \
     ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
-from BOT.handlers.main_handlers.buttons import inline_kb_start_menu
+from BOT.handlers.main_handlers.buttons import inline_kb_start_menu, inline_kb_OGE_menu
 from BOT.main import config
 
 bot = Bot(token=config.TOKEN_test)
@@ -20,13 +20,17 @@ async def cmd_help(msg: types.Message):         # Хандлер для кома
                      "https://t.me/Dan4ksapr123")
 
 async def cmd_button_OGE(callback_query: types.CallbackQuery):
-    await bot.send_message(text='ОГЭ', chat_id=callback_query.message.chat.id)
+    await bot.send_message(text='Выбирай предмет:', chat_id=callback_query.message.chat.id, reply_markup=inline_kb_OGE_menu)
 
 async def cmd_button_EGE(callback_query: types.CallbackQuery):
     await bot.send_message(text='ЕГЭ', chat_id=callback_query.message.chat.id)
+
+async def cmd_button_OGE_math(callback_query: types.CallbackQuery):
+    await bot.send_message(text='Математика', chat_id=callback_query.message.chat.id)
 
 def register_handlers_main(dp: Dispatcher):
     dp.register_message_handler(cmd_start, commands='start')
     dp.register_message_handler(cmd_help, commands='help')
     dp.register_callback_query_handler(cmd_button_OGE, lambda c: c.data == 'button_OGE')
     dp.register_callback_query_handler(cmd_button_EGE, lambda c: c.data == 'button_EGE')
+    dp.register_callback_query_handler(cmd_button_OGE_math, lambda c: c.data == 'button_OGE_math')
