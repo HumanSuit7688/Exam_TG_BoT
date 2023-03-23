@@ -22,7 +22,11 @@ async def cmd_help(msg: types.Message):         # Хандлер для кома
 async def cmd_button_OGE(callback_query: types.CallbackQuery):
     await bot.send_message(text='ОГЭ', chat_id=callback_query.message.chat.id)
 
+async def cmd_button_EGE(callback_query: types.CallbackQuery):
+    await bot.send_message(text='ЕГЭ', chat_id=callback_query.message.chat.id)
+
 def register_handlers_main(dp: Dispatcher):
     dp.register_message_handler(cmd_start, commands='start')
     dp.register_message_handler(cmd_help, commands='help')
     dp.register_callback_query_handler(cmd_button_OGE, lambda c: c.data == 'button_OGE')
+    dp.register_callback_query_handler(cmd_button_EGE, lambda c: c.data == 'button_EGE')
