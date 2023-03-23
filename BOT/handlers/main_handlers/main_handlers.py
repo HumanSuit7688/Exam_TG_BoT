@@ -23,7 +23,7 @@ async def cmd_button_OGE(callback_query: types.CallbackQuery):
     await bot.send_message(text='ОГЭ', chat_id=callback_query.message.chat.id)
 
 async def cmd_button_EGE(callback_query: types.CallbackQuery):
-    await bot.send_message(text='ЕГЭ', chat_id=callback_query.message.chat.id)
+    await bot.send_message(text='ЕГЕ', chat_id=callback_query.message.chat.id)
 
 def register_handlers_main(dp: Dispatcher):
     dp.register_message_handler(cmd_start, commands='start')
