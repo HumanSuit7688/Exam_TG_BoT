@@ -24,7 +24,7 @@ async def cmd_button_OGE(callback_query: types.CallbackQuery):
     await bot.send_message(text='Выбирай предмет:', chat_id=callback_query.message.chat.id, reply_markup=inline_kb_OGE_menu)
 
 async def cmd_button_EGE(callback_query: types.CallbackQuery):
-    await bot.send_message(text='ЕГЭ', chat_id=callback_query.message.chat.id)
+    await bot.send_message(text='ЕГЕ', chat_id=callback_query.message.chat.id)
 
 async def cmd_button_OGE_math(callback_query: types.CallbackQuery):
     await bot.send_message(text='Математика', chat_id=callback_query.message.chat.id)
