@@ -1,7 +1,7 @@
 from aiogram import Dispatcher, types, Bot
 from aiogram.types import ReplyKeyboardRemove, \
     ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
-from BOT.handlers.main_handlers.buttons import inline_kb_start_menu, inline_kb_OGE_menu, inline_kb_OGE_math_menu
+from BOT.handlers.main_handlers.buttons import inline_kb_start_menu, inline_kb_OGE_menu, inline_kb_OGE_math_menu, inline_kb_OGE_Next_menu
 from BOT.main import config
 
 bot = Bot(token=config.TOKEN_test)
@@ -35,6 +35,17 @@ async def cmd_button_OGE_IT(callback_query: types.CallbackQuery):
 async def cmd_button_OGE_Rus(callback_query: types.CallbackQuery):
     await bot.send_message(text='Русский язык', chat_id=callback_query.message.chat.id)
 
+async def cmd_button_OGE_Phys(callback_query: types.CallbackQuery):
+    await bot.send_message(text='Физика', chat_id=callback_query.message.chat.id)
+
+async def cmd_button_OGE_Chem(callback_query: types.CallbackQuery):
+    await bot.send_message(text='Химия', chat_id=callback_query.message.chat.id)
+
+async def cmd_button_OGE_Bio(callback_query: types.CallbackQuery):
+    await bot.send_message(text='Биология', chat_id=callback_query.message.chat.id)
+
+async def cmd_button_OGE_Next_menu(callback_query: types.CallbackQuery):
+    await bot.edit_message_reply_markup(chat_id=callback_query.message.chat.id,message_id = callback_query.message.message_id, reply_markup=inline_kb_OGE_Next_menu)
 
 async def cmd_button_OGE_math_menu(callback_query: types.CallbackQuery):
     await bot.send_message(text='Ты хочешь решать тренировочные варианты или задачи по определённым темам?',
@@ -49,3 +60,7 @@ def register_handlers_main(dp: Dispatcher):
     dp.register_callback_query_handler(cmd_button_OGE_math, lambda c: c.data == 'button_OGE_math')
     dp.register_callback_query_handler(cmd_button_OGE_IT, lambda c: c.data == 'button_OGE_IT')
     dp.register_callback_query_handler(cmd_button_OGE_Rus, lambda c: c.data == 'button_OGE_Rus')
+    dp.register_callback_query_handler(cmd_button_OGE_Phys, lambda c: c.data == 'button_OGE_Phys')
+    dp.register_callback_query_handler(cmd_button_OGE_Chem, lambda c: c.data == 'button_OGE_Chem')
+    dp.register_callback_query_handler(cmd_button_OGE_Bio, lambda c: c.data == 'button_OGE_Bio')
+    dp.register_callback_query_handler(cmd_button_OGE_Next_menu, lambda c: c.data == 'button_OGE_Next')
