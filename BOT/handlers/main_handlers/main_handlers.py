@@ -1,7 +1,7 @@
 from aiogram import Dispatcher, types, Bot
 from aiogram.types import ReplyKeyboardRemove, \
     ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
-from BOT.handlers.main_handlers.buttons import inline_kb_start_menu, inline_kb_OGE_menu
+from BOT.handlers.main_handlers.buttons import inline_kb_start_menu, inline_kb_OGE_menu, inline_kb_OGE_math_menu
 from BOT.main import config
 
 bot = Bot(token=config.TOKEN_test)
@@ -32,6 +32,14 @@ async def cmd_button_OGE_math(callback_query: types.CallbackQuery):
 async def cmd_button_OGE_IT(callback_query: types.CallbackQuery):
     await bot.send_message(text='Информатика', chat_id=callback_query.message.chat.id)
 
+async def cmd_button_OGE_Rus(callback_query: types.CallbackQuery):
+    await bot.send_message(text='Русский язык', chat_id=callback_query.message.chat.id)
+
+
+async def cmd_button_OGE_math_menu(callback_query: types.CallbackQuery):
+    await bot.send_message(text='Ты хочешь решать тренировочные варианты или задачи по определённым темам?',
+                           chat_id=callback_query.message.chat.id,
+                           reply_markup=inline_kb_OGE_math_menu)
 
 def register_handlers_main(dp: Dispatcher):
     dp.register_message_handler(cmd_start, commands='start')
@@ -40,3 +48,4 @@ def register_handlers_main(dp: Dispatcher):
     dp.register_callback_query_handler(cmd_button_EGE, lambda c: c.data == 'button_EGE')
     dp.register_callback_query_handler(cmd_button_OGE_math, lambda c: c.data == 'button_OGE_math')
     dp.register_callback_query_handler(cmd_button_OGE_IT, lambda c: c.data == 'button_OGE_IT')
+    dp.register_callback_query_handler(cmd_button_OGE_Rus, lambda c: c.data == 'button_OGE_Rus')
