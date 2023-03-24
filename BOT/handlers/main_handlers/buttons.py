@@ -9,4 +9,5 @@ inline_kb_start_menu = InlineKeyboardMarkup().add(inline_btn_OGE).add(inline_btn
 
 inline_btn_Math = InlineKeyboardButton('Математика', callback_data='button_OGE_math')
 inline_btn_IT = InlineKeyboardButton('Информатика', callback_data='button_OGE_IT')
+inline_btn_Rus = InlineKeyboardButton('Русский язык', callback_data='button_OGE_Rus')
 inline_kb_OGE_menu = InlineKeyboardMarkup().add(inline_btn_Math).add(inline_btn_IT)
