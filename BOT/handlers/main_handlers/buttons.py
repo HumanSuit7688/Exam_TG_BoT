@@ -22,4 +22,6 @@ inline_kb_OGE_menu = InlineKeyboardMarkup().row(inline_btn_OGE_Math).row(inline_
 inline_btn_OGE_math_Vars = InlineKeyboardButton('Варианты', callback_data='button_OGE_math_Vars')
 inline_btn_OGE_math_Exers = InlineKeyboardButton('Задачи', callback_data='button_OGE_math_Exers')
 inline_kb_OGE_math_menu = InlineKeyboardMarkup().add(inline_btn_OGE_math_Vars).add(inline_btn_OGE_math_Exers)
+
+
 inline_kb_OGE_Next_menu = InlineKeyboardMarkup().row(inline_btn_OGE_Bio)
